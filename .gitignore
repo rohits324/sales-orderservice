@@ -1,0 +1,24 @@
+# Compiled output - never commit these
+target/
+*.class
+*.jar
+*.war
+
+# IDE files
+.idea/
+*.iml
+*.iws
+.classpath
+.project
+.settings/
+
+# Maven
+.mvn/timing.properties
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db

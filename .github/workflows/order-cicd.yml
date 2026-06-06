@@ -52,12 +52,12 @@ jobs:
           docker push $REGISTRY/$ECR_REPO:latest
           echo "image=$IMAGE_URI" >> $GITHUB_OUTPUT
 
-      - name: Update K8s Deployment Image
-        env:
-          REGISTRY:  ${{ steps.login-ecr.outputs.registry }}
-          IMAGE_TAG: ${{ github.sha }}
-        run: |
-          IMAGE_URI=$REGISTRY/$ECR_REPO:$IMAGE_TAG
-          kubectl set image deployment/order-deployment \
-            order-service=$IMAGE_URI \
-            --namespace=sales
+      # - name: Update K8s Deployment Image
+      #   env:
+      #     REGISTRY:  ${{ steps.login-ecr.outputs.registry }}
+      #     IMAGE_TAG: ${{ github.sha }}
+      #   run: |
+      #     IMAGE_URI=$REGISTRY/$ECR_REPO:$IMAGE_TAG
+      #     kubectl set image deployment/order-deployment \
+      #       order-service=$IMAGE_URI \
+      #       --namespace=sales
