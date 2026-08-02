@@ -1,12 +1,13 @@
-name: CI/CD — Order Service
+name: Dev-env-pipeline
 
 on:
-  pull_request:
+  push:
     branches:
-      - main
+      - dev
 
 env:
   DOCKERHUB_IMAGE: rohitkumar4praja/order-service
+
 
 jobs:
   build-stage:
@@ -52,3 +53,4 @@ jobs:
           tags: |
             ${{ env.DOCKERHUB_IMAGE }}:latest
             ${{ env.DOCKERHUB_IMAGE }}:${{ github.sha }}
+          
